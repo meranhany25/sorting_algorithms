@@ -14,27 +14,31 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = size - 1;
-	int tmp;
-	bool flag = true;
+    size_t i = 0, j = size - 1;
+    int tmp;
+    bool flag = true;
 
-	if (!array || size < 2) return;
+    if (!array || size < 2)
+        return;
 
-	while (flag) {
-		flag = false; 
-		i = 0;
+    while (flag)
+    {
+        flag = false;
+        i = 0;
 
-		while (i < size - j) {
-			if (array[i] > array[i + 1]) {
-				tmp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = tmp;
-				print_array(array, size);
-				flag = true; 
-			}
-			i++;
-		}
+        while (i < size - j)
+        {
+            if (array[i] > array[i + 1])
+            {
+                tmp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = tmp;
+                print_array(array, size);
+                flag = true;
+            }
+            i++;
+        }
 
-		j--;
-	}
+        j--;
+    }
 }
