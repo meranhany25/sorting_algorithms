@@ -7,7 +7,7 @@
  * @high: high index
  * @size: size of the array
  * Return: index of the pivot
-*/
+ */
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high], i = low - 1, tmp;
@@ -40,7 +40,7 @@ int partition(int *array, int low, int high, size_t size)
  * @low: low index
  * @high: high index
  * @size: size of the array
-*/
+ */
 
 void quicksort(int *array, int low, int high, size_t size)
 {
@@ -58,7 +58,7 @@ void quicksort(int *array, int low, int high, size_t size)
  * using the Quick sort algorithm
  * @array: array to sort
  * @size: size of the array
-*/
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size <= 1)
