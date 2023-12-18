@@ -1,47 +1,57 @@
 #include "sort.h"
 
 /**
+ * swap - Swaps two integers.
+ * @a: Pointer to the first integer.
+ * @b: Pointer to the second integer.
+ */
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * partition - Lomuto partition scheme
- * @array: array to sort
- * @low: low index
- * @high: high index
- * @size: size of the array
- * Return: index of the pivot
+ * @array: Array to sort.
+ * @low: Low index.
+ * @high: High index.
+ * @size: Size of the array.
+ * Return: Index of the pivot.
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot = array[high], i = low - 1, tmp;
-	int j = low;
+	int pivot = array[high];
+	int i = low - 1;
+	int j;
 
-	while (j < high)
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] <= pivot)
 		{
 			i++;
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
 			if (i != j)
+			{
+				swap(&array[i], &array[j]);
 				print_array(array, size);
+			}
 		}
-		j++;
 	}
-	tmp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = tmp;
+	swap(&array[i + 1], &array[high]);
 	if (i + 1 != j)
 		print_array(array, size);
+
 	return (i + 1);
 }
 
 /**
- * quicksort - helper function for quick_sort
- * @array: array to sort
- * @low: low index
- * @high: high index
- * @size: size of the array
+ * quicksort - Helper function for quick_sort.
+ * @array: Array to sort.
+ * @low: Low index.
+ * @high: High index.
+ * @size: Size of the array.
  */
-
 void quicksort(int *array, int low, int high, size_t size)
 {
 	if (low < high)
@@ -54,10 +64,10 @@ void quicksort(int *array, int low, int high, size_t size)
 }
 
 /**
- * quick_sort - sorts an array of integers in ascending order
- * using the Quick sort algorithm
- * @array: array to sort
- * @size: size of the array
+ * quick_sort - Sorts an array of integers in ascending order
+ * using the Quick Sort algorithm.
+ * @array: Array to sort.
+ * @size: Size of the array.
  */
 void quick_sort(int *array, size_t size)
 {

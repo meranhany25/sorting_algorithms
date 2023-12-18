@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "sort.h"
+#include "list.h" // Include the appropriate header file for listint_t
 
 /**
  * print_list - Prints a list of integers
